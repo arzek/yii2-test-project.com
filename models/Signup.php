@@ -24,4 +24,16 @@ class Signup extends Model
 
         ];
     }
+    public function signup()
+    {
+        $user = new User;
+        $user->email = $this->email;
+        $user->name = $this->name;
+        $user->number = $this->number;
+        $user->referral = $this->referral;
+        $user->password = $this->password;
+
+        return $user->save();
+
+    }
 }
