@@ -1,4 +1,6 @@
 <h1>Register</h1>
+
+
 <?php
 
 use \yii\widgets\ActiveForm;
@@ -6,7 +8,7 @@ use \yii\widgets\ActiveForm;
 ?>
 <?php
 
-  $form = ActiveForm::begin(['class' => 'form-horizontal']);
+$form = ActiveForm::begin(['class' => 'form-horizontal']);
 ?>
 
 <?= $form->field($model,'email')->textInput(['autofocus' =>true]) ?>

@@ -15,7 +15,7 @@ class Signup extends Model
     public function rules()
     {
         return [
-            [['email','password','number'],'required'],
+            [['email','password','number','name'],'required'],
             ['email','email'],
             ['email','unique','targetClass' => 'app\models\User'],
             ['number','number','min' => 9],
@@ -31,7 +31,9 @@ class Signup extends Model
         $user->name = $this->name;
         $user->number = $this->number;
         $user->referral = $this->referral;
+        $user->bonus = 0;
         $user->password = $this->password;
+
 
         return $user->save();
 
