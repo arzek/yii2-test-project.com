@@ -17,6 +17,14 @@ class SiteController extends Controller
     {
         $login_model = new Login();
 
-        return $this->render('login',['login_model' => $login_model]);
+        if (Yii::$app->request->post('Login')) {
+            $login_model->attributes = Yii::$app->request->post('Login');
+
+            if ($login_model->validate()) {
+                return $this->goHome();
+            }
+        }
+
+        return $this->render('login', ['login_model' => $login_model]);
     }
 }

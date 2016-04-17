@@ -14,7 +14,24 @@ class Login extends Model
         return [
             [['email','password'],'required'],
             ['email','email'],
-            ['password','string', 'min' => 6]
+            ['password','validatePassword'],
         ];
+    }
+    public function validatePassword($attribute,$param)
+    {
+        if(!$this->hasErrors())
+        {
+            $user = $this->getUser();
+
+            if(!$user || (!$user->validatePassword($this->password)))
+            {
+                $this->addError($attribute,'Username or Password incorrect');
+            }
+        }
+
+    }
+    public function getUser()
+    {
+        return User::findOne(['email' =>$this->email]);
     }
 }
