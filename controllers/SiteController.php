@@ -16,6 +16,8 @@ class SiteController extends Controller
    }
     public function actionLogin()
     {
-        return $this->render('login');
+        $login_model = new Login();
+
+        return $this->render('login',['lodin_model' => $login_model]);
     }
 }
