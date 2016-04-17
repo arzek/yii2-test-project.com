@@ -32,7 +32,7 @@ class Signup extends Model
         $user->number = $this->number;
         $user->referral = $this->referral;
         $user->bonus = 0;
-        $user->password = $this->password;
+        $user->setPassword($this->password);
 
 
         return $user->save();
