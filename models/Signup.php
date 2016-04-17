@@ -3,6 +3,7 @@
 namespace app\models;
 
 use yii\base\Model;
+use app\models\User;
 
 class Signup extends Model
 {
@@ -34,8 +35,12 @@ class Signup extends Model
         $user->bonus = 0;
         $user->setPassword($this->password);
 
+        User::Referral($this->referral);
+
+        
 
         return $user->save();
 
     }
+    
 }
