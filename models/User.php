@@ -37,4 +37,21 @@ class User extends activeRecord implements IdentityInterface
     {
         // TODO: Implement validateAuthKey() method.
     }
+    /***************  Referral *****************/
+    public static function Referral($referral)
+    {
+        $user =  self::findIdentity($referral);
+        if($referral!= 0)
+        {
+            $user->bonus++;
+            $user->save();
+            if($user->referral!=0)
+            {
+                self::Referral($user->referral);
+            }
+        }else
+        {
+            return true;
+        }
+    }
 }
