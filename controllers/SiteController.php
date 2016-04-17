@@ -4,8 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\models\User;
-use app\models\Signup;
+use app\models\Login;
 
 
 class SiteController extends Controller
@@ -18,6 +17,6 @@ class SiteController extends Controller
     {
         $login_model = new Login();
 
-        return $this->render('login',['lodin_model' => $login_model]);
+        return $this->render('login',['login_model' => $login_model]);
     }
 }
