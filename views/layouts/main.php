@@ -10,6 +10,19 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
+
+
+
+
+if(!Yii::$app->user->isGuest)
+{
+    $login = 'Hello '.Yii::$app->user->identity->name;
+}
+else
+{
+    $login ='Hello, please login';
+}
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,32 +40,36 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+
+        'brandLabel' => "$login",
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Register', 'url' => ['/register/']],
-
-            Yii::$app->user->isGuest ? (
+    if(!Yii::$app->user->isGuest)
+    {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => 'User', 'url' => ['/user/']],
+                ['label' => 'Edit', 'url' => ['/user/edit/']],
+                ['label' => 'Office', 'url' => ['/user/office']],
+                ['label' => 'Message', 'url' => ['/site/message']],
+                ['label' => 'Logout', 'url' => ['/site/logout']]
+            ],
+        ]);
+    }else
+    {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => 'User', 'url' => ['/user/']],
+                ['label' => 'Register', 'url' => ['/register/']],
                 ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->name . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
+            ],
+        ]);
+    }
     NavBar::end();
     ?>
 

@@ -54,4 +54,12 @@ class User extends activeRecord implements IdentityInterface
             return true;
         }
     }
+    /************** LK *********/
+    public function rules()
+    {
+        return [
+            [['number','name'],'required'],
+            ['number','number','min' => 8],
+        ];
+    }
 }
