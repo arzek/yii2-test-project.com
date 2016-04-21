@@ -63,7 +63,7 @@ else
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Home', 'url' => ['/user/']],
+                ['label' => 'User', 'url' => ['/user/']],
                 ['label' => 'Register', 'url' => ['/register/']],
                 ['label' => 'Login', 'url' => ['/site/login']]
             ],
