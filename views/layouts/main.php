@@ -47,19 +47,28 @@ else
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Register', 'url' => ['/register/']],
-                Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
+    if(!Yii::$app->user->isGuest)
+    {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'Office', 'url' => ['/site/office']],
+                ['label' => 'Message', 'url' => ['/site/message']],
                 ['label' => 'Logout', 'url' => ['/site/logout']]
-            )
-
-        ],
-    ]);
+            ],
+        ]);
+    }else
+    {
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'Register', 'url' => ['/register/']],
+                ['label' => 'Login', 'url' => ['/site/login']]
+            ],
+        ]);
+    }
     NavBar::end();
     ?>
 
