@@ -11,6 +11,18 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 
+
+
+
+if(!Yii::$app->user->isGuest)
+{
+    $login = 'Hello '.Yii::$app->user->identity->name;
+}
+else
+{
+    $login ='Hello, please login';
+}
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -28,7 +40,8 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Hi '.Yii::$app->user->identity->name,
+
+        'brandLabel' => "$login",
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -39,12 +52,12 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Register', 'url' => ['/register/']],
-
-            Yii::$app->user->isGuest ? (
+                Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 ['label' => 'Logout', 'url' => ['/site/logout']]
             )
+
         ],
     ]);
     NavBar::end();
