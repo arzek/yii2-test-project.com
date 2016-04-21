@@ -53,7 +53,7 @@ else
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
                 ['label' => 'User', 'url' => ['/user/']],
-                ['label' => 'Office', 'url' => ['/site/office']],
+                ['label' => 'Office', 'url' => ['/user/office']],
                 ['label' => 'Message', 'url' => ['/site/message']],
                 ['label' => 'Logout', 'url' => ['/site/logout']]
             ],

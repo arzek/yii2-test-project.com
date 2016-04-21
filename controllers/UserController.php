@@ -8,9 +8,10 @@
 
 namespace app\controllers;
 
-
+use Yii;
 use yii\web\Controller;
 use app\models\User;
+
 
 class UserController extends Controller
 {
@@ -18,7 +19,24 @@ class UserController extends Controller
     {
         $users = User::find()->orderBy('id')->all();
 
-        return $this->render('index',['users' => $users]);
+        return $this->render('index',['users' => $users,]);
+    }
+    public function actionOne($id)
+    {
+        $user = User::findIdentity($id);
+        
+        return $this->render('one',['user' =>$user]);
+    }
+    public function actionOffice()
+    {
+        if(Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }else
+        {
+            $user = User::findIdentity(Yii::$app->user->id);
+            return $this->render('one',['user' =>$user]);
+        }
     }
 
 }
