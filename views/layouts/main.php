@@ -52,7 +52,7 @@ else
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'User', 'url' => ['/user/']],
                 ['label' => 'Office', 'url' => ['/site/office']],
                 ['label' => 'Message', 'url' => ['/site/message']],
                 ['label' => 'Logout', 'url' => ['/site/logout']]
@@ -63,7 +63,7 @@ else
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'Home', 'url' => ['/user/']],
                 ['label' => 'Register', 'url' => ['/register/']],
                 ['label' => 'Login', 'url' => ['/site/login']]
             ],
