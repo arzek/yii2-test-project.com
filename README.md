@@ -1,3 +1,8 @@
+Terms of Reference
+=====================================
+1. Register
+2. Login
+
 Yii 2 Basic Project Template
 ============================
 
