@@ -12,8 +12,8 @@
             <tr class="<?= $massage->role() ?>">
                 <td> <?= $massage->id ?>  </td>
                 <td class="col-md-6"> <a href="/message/<?= $massage->id ?>">  <?= $massage->title ?> </a></td>
-                <td> <a href="/user/<?= $massage->sender ?>"><?= $massage->sender ?> </a></td>
-                <td> <a href="/user/<?= $massage->recipient ?>"><?= $massage->recipient ?> </a></td>
+                <td> <a href="/user/<?= $massage->sender ?>"><?= $massage->getName($massage->sender) ?> </a></td>
+                <td> <a href="/user/<?= $massage->recipient ?>"><?= $massage->getName($massage->recipient) ?> </a></td>
                 <td><?= $massage->date ?></td>
             </tr>
 

@@ -10,6 +10,7 @@ namespace app\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use app\models\User;
 
 class Message extends ActiveRecord
 {
@@ -33,5 +34,10 @@ class Message extends ActiveRecord
                 return 'success';
             }
         }
+    }
+    public function getName($id)
+    {
+        $user = User::findIdentity($id);
+        return $user->name;
     }
 }
