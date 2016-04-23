@@ -47,7 +47,7 @@ $config = [
                 '' => 'site/index',
                 'login' => 'site/login',
                 'user/<id:\d+>' => 'user/one',
-                'messege/<id:\d+>' => 'message/single',
+                'message/<id:\d+>' => 'message/single',
 
             ],
         ],

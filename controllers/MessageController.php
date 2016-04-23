@@ -36,14 +36,16 @@ class MessageController extends Controller
             if($massage[0]->sender ==Yii::$app->user->id )
             {
                 $massage[0]->sender_r = 1;
+               
             }else if($massage[0]->recipient == Yii::$app->user->id)
             {
                 $massage[0]->recipient_r = 1;
+
             }
 
             $massage[0]->save();
 
-            return $this->render('single',['massage'=>$massage[0]]);
+            return $this->render('single',['massage'=>$massage[0], 'role' =>$role]);
         }else
         {
            return $this->goHome();

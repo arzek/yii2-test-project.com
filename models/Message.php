@@ -8,10 +8,30 @@
 
 namespace app\models;
 
-
+use Yii;
 use yii\db\ActiveRecord;
 
 class Message extends ActiveRecord
 {
-
+    public function role()
+    {
+        if (Yii::$app->user->id == $this->sender) {
+            if ($this->sender_r == 0)
+            {
+                return 'warning';
+            }else
+            {
+                return 'success';
+            }
+        } else if (Yii::$app->user->id == $this->recipient  )
+        {
+            if($this->recipient_r == 0)
+            {
+                return 'warning';
+            }else
+            {
+                return 'success';
+            }
+        }
+    }
 }

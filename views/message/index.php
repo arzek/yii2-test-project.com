@@ -4,14 +4,16 @@
                 <td>№</td>
                 <td>Title</td>
                 <td>Sender</td>
+                <td>Recipient</td>
                 <td>Date</td>
             </tr>
             <?php foreach ($massages as $massage): ?>
 
-            <tr>
-                <td><a href="/massage/<?= $massage->id ?>">  <?= $massage->id ?>  </a></td>
-                <td><?= $massage->title ?></td>
-                <td><?= $massage->sender ?></td>
+            <tr class="<?= $massage->role() ?>">
+                <td> <?= $massage->id ?>  </td>
+                <td class="col-md-6"> <a href="/message/<?= $massage->id ?>">  <?= $massage->title ?> </a></td>
+                <td> <a href="/user/<?= $massage->sender ?>"><?= $massage->sender ?> </a></td>
+                <td> <a href="/user/<?= $massage->recipient ?>"><?= $massage->recipient ?> </a></td>
                 <td><?= $massage->date ?></td>
             </tr>
 
