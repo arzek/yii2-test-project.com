@@ -53,7 +53,12 @@ class MessageController extends Controller
     }
     public function actionWrite($id)
     {
-        
+        if($id == Yii::$app->user->id)
+        {
+            return $this->goHome();
+        }
+
+
         $message = new AddMessage();
 
         if(isset($_POST['AddMessage']))

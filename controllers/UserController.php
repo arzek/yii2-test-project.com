@@ -24,6 +24,15 @@ class UserController extends Controller
 
         $users = User::find()->orderBy('id')->all();
 
+        $count = count($users);
+        for($i =0;$i<$count;$i++)
+        {
+            if($users[$i]['id'] == Yii::$app->user->id)
+            {
+                unset($users[$i]);
+            }
+        }
+
         return $this->render('index',['users' => $users,]);
     }
     public function actionSingle($id)
@@ -43,11 +52,6 @@ class UserController extends Controller
         }
         $user = User::findIdentity(Yii::$app->user->id);
         return $this->render('profile',['user' =>$user]);
-    }
-    public function actionOffice()
-    {
-            $user = User::findIdentity(Yii::$app->user->id);
-            return $this->render('one',['user' =>$user]);
     }
     public function actionEdit()
     {
