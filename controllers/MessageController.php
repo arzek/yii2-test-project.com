@@ -76,4 +76,18 @@ class MessageController extends Controller
 
         return $this->render('write',['message' =>$message]);
     }
+    public function actionNew()
+    {
+        $where = "recipient=".Yii::$app->user->id;
+        $massages = Message::find()->where($where)->all();
+        $i = 0;
+
+        foreach ($massages as $massage)
+            if($massage->recipient_r == 0)
+                $i++;
+
+        print $i;
+
+
+    }
 }
