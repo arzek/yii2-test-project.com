@@ -17,14 +17,19 @@ class UserController extends Controller
 {
     public function actionIndex()
     {
+        if(Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
+
         $users = User::find()->orderBy('id')->all();
 
         return $this->render('index',['users' => $users,]);
     }
-    public function actionOne($id)
+    public function actionSingle($id)
     {
         $user = User::findIdentity($id);
-        return $this->render('one',['user' =>$user]);
+        return $this->render('single',['user' =>$user]);
     }
     public function actionOffice()
     {

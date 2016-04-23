@@ -1,5 +1,5 @@
 
-<table class="table">
+<table class="table table-striped">
 
     <tr>
         <td>№</td>
