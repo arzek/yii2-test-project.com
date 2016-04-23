@@ -47,6 +47,8 @@ $config = [
                 '' => 'site/index',
                 'login' => 'site/login',
                 'user/<id:\d+>' => 'user/one',
+                'message/<id:\d+>' => 'message/single',
+
             ],
         ],
         'assetManager' => [
