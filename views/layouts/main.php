@@ -55,7 +55,7 @@ else
                 ['label' => 'User', 'url' => ['/user/']],
                 ['label' => 'Edit', 'url' => ['/user/edit/']],
                 ['label' => 'Profile', 'url' => ['/user/profile']],
-                ['label' => 'Message', 'url' => ['/message']],
+                ['label' => 'Message', 'url' => ['/message'] ,'options' =>['id' =>'message']],
                 ['label' => 'Logout', 'url' => ['/site/logout']]
             ],
         ]);
