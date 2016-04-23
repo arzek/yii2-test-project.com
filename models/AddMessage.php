@@ -35,7 +35,6 @@ class AddMessage extends Model
         $message->sender = $this->sender;
         $message->recipient = $this->recipient;
 
-        $message->save();
+        return $message->save();
     }
-
 }

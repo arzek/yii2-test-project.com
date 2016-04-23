@@ -54,7 +54,7 @@ else
             'items' => [
                 ['label' => 'User', 'url' => ['/user/']],
                 ['label' => 'Edit', 'url' => ['/user/edit/']],
-                ['label' => 'Office', 'url' => ['/user/office']],
+                ['label' => 'Profile', 'url' => ['/user/profile']],
                 ['label' => 'Message', 'url' => ['/message']],
                 ['label' => 'Logout', 'url' => ['/site/logout']]
             ],
@@ -64,7 +64,7 @@ else
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                
+
                 ['label' => 'Register', 'url' => ['/register/']],
                 ['label' => 'Login', 'url' => ['/site/login']]
             ],

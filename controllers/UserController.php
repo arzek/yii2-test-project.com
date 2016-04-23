@@ -28,8 +28,21 @@ class UserController extends Controller
     }
     public function actionSingle($id)
     {
+        if(Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
         $user = User::findIdentity($id);
         return $this->render('single',['user' =>$user]);
+    }
+    public function actionProfile()
+    {
+        if(Yii::$app->user->isGuest)
+        {
+            return $this->goHome();
+        }
+        $user = User::findIdentity(Yii::$app->user->id);
+        return $this->render('profile',['user' =>$user]);
     }
     public function actionOffice()
     {
@@ -46,7 +59,7 @@ class UserController extends Controller
         if(isset($_POST['User']))
         {
             $user->attributes = $_POST['User'];
-
+        
 
             if($user->validate())
             {
@@ -54,9 +67,6 @@ class UserController extends Controller
                 return $this->goHome();
             }
         }
-
-
-
 
         return $this->render('edit',['user' => $user]);
 

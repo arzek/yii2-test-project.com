@@ -50,7 +50,25 @@ class MessageController extends Controller
         {
            return $this->goHome();
         }
+    }
+    public function actionWrite($id)
+    {
+        
+        $message = new AddMessage();
 
+        if(isset($_POST['AddMessage']))
+        {
+            $message->title = $_POST['AddMessage']['title'];
+            $message->text = $_POST['AddMessage']['text'];
+            $message->sender = Yii::$app->user->id;
+            $message->recipient = $id;
 
+            if($message->validate() && $message->addMassage())
+            {
+                return $this->goHome();
+            }
+        }
+
+        return $this->render('write',['message' =>$message]);
     }
 }
