@@ -14,7 +14,7 @@ use app\models\Message;
 use app\models\AddMessage;
 use app\models\User;
 
-class MessegeController extends Controller
+class MessageController extends Controller
 {
     public function actionIndex()
     {
@@ -23,10 +23,10 @@ class MessegeController extends Controller
             return $this->goHome();
         }
         $where = "sender= ".Yii::$app->user->id." OR recipient=".Yii::$app->user->id;
-        $massage = Message::find()->where($where)->all();
+        $massages = Message::find()->where($where)->all();
 
 
-        return $this->render('index',['massage' => $massage]);
+        return $this->render('index',['massages' => $massages]);
     }
     public function actionSingle($id)
     {
