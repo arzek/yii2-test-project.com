@@ -45,7 +45,7 @@ class MessageController extends Controller
 
             $massage[0]->save();
 
-            return $this->render('single',['massage'=>$massage[0], 'role' =>$role]);
+            return $this->render('single',['massage'=>$massage[0]]);
         }else
         {
            return $this->goHome();

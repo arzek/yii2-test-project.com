@@ -1,1 +1,2 @@
-<?php var_dump($massage) ?>
+<h1><?= $massage->title ?></h1>
+<p><?= $massage->text ?></p>
