@@ -62,4 +62,5 @@ class User extends activeRecord implements IdentityInterface
             ['number','number','min' => 8],
         ];
     }
+
 }
