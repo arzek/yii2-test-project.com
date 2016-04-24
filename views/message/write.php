@@ -8,11 +8,12 @@ use \yii\widgets\ActiveForm;
 ?>
 <?php
 
-$form = ActiveForm::begin(['class' => 'form-horizontal']);
+$form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);
 ?>
 
 <?= $form->field($message,'title')->textInput(['autofocus' =>true]) ?>
 <?= $form->field($message,'text')->textInput(['autofocus' =>true]) ?>
+<?= $form->field($message, 'File')->fileInput() ?>
 
 <div>
     <button type="submit" class="btn btn-primary">Submit</button>
