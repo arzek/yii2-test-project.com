@@ -42,6 +42,9 @@ class UserController extends Controller
             return $this->goHome();
         }
         $user = User::findIdentity($id);
+
+
+
         return $this->render('single',['user' =>$user]);
     }
     public function actionProfile()
@@ -61,10 +64,10 @@ class UserController extends Controller
             return $this->goHome();
         }
         $user = User::findIdentity(Yii::$app->user->id);
-        if(isset($_POST['User'])  )
+       if(isset($_POST['User'])  )
         {
             $user->attributes = $_POST['User'];
-        
+            
 
             if($user->validate())
             {
@@ -73,7 +76,7 @@ class UserController extends Controller
             }
         }
 
-        return $this->render('edit',['user' => $user]);
+        return $this->render('edit',['user' => $user,]);
 
     }
 

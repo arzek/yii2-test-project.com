@@ -50,7 +50,7 @@ $config = [
                 'user/profile' => 'user/profile',
                 'message/<id:\d+>' => 'message/single',
                 'message/write/<id:\d+>' => 'message/write',
-
+                
             ],
         ],
         'assetManager' => [

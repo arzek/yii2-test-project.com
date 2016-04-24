@@ -35,7 +35,7 @@ class Signup extends Model
         if(isset($this->image))
         {
             $this->image->saveAs('uploads/img' . $this->image->baseName . '.' . $this->image->extension);
-            $user->img = "web/uploads/img/".$this->image->name;
+            $user->img = $this->image->name;
         }
 
         $user->email = $this->email;
