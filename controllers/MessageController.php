@@ -13,6 +13,8 @@ use yii\web\Controller;
 use app\models\Message;
 use app\models\AddMessage;
 use app\models\User;
+use app\models\UploadForm;
+use yii\web\UploadedFile;
 
 class MessageController extends Controller
 {
@@ -68,6 +70,9 @@ class MessageController extends Controller
             $message->sender = Yii::$app->user->id;
             $message->recipient = $id;
 
+            $message->imageFile = UploadedFile::getInstance($message, 'imageFile');
+
+           
             if($message->validate() && $message->addMassage())
             {
                 return $this->goHome();

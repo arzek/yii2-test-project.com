@@ -11,6 +11,7 @@ namespace app\models;
 
 use yii\base\Model;
 use app\models\Message;
+use yii\web\UploadedFile;
 
 class AddMessage extends Model
 {
@@ -18,6 +19,7 @@ class AddMessage extends Model
     public $text;
     public $sender;
     public $recipient;
+    public $imageFile;
 
     public function rules()
     {
@@ -29,6 +31,8 @@ class AddMessage extends Model
     public function addMassage()
     {
         $message = new Message();
+        if(isset($this->imageFile))
+            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
 
         $message->title = $this->title;
         $message->text = $this->text;
