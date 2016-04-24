@@ -55,12 +55,13 @@ class UserController extends Controller
     }
     public function actionEdit()
     {
-        $user = User::findIdentity(Yii::$app->user->id);
+
         if(Yii::$app->user->isGuest)
         {
             return $this->goHome();
         }
-        if(isset($_POST['User']))
+        $user = User::findIdentity(Yii::$app->user->id);
+        if(isset($_POST['User'])  )
         {
             $user->attributes = $_POST['User'];
         
