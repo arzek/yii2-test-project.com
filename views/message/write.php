@@ -13,7 +13,7 @@ $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);
 
 <?= $form->field($message,'title')->textInput(['autofocus' =>true]) ?>
 <?= $form->field($message,'text')->textInput(['autofocus' =>true]) ?>
-<?= $form->field($message, 'imageFile')->fileInput() ?>
+<?= $form->field($message, 'File')->fileInput() ?>
 
 <div>
     <button type="submit" class="btn btn-primary">Submit</button>

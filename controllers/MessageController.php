@@ -65,14 +65,19 @@ class MessageController extends Controller
 
         if(isset($_POST['AddMessage']))
         {
+            $message->File = UploadedFile::getInstance($message, 'File');
+            $file_url = '/web/uploads/'.$message->File->name;
+            $file_name = $message->File->name;
+            $file = "<a href='$file_url'>$file_name</a>";
+
             $message->title = $_POST['AddMessage']['title'];
-            $message->text = $_POST['AddMessage']['text'];
+            $message->text = $_POST['AddMessage']['text']."<br>".$file;
             $message->sender = Yii::$app->user->id;
             $message->recipient = $id;
 
-            $message->imageFile = UploadedFile::getInstance($message, 'imageFile');
 
-           
+
+
             if($message->validate() && $message->addMassage())
             {
                 return $this->goHome();

@@ -19,7 +19,7 @@ class AddMessage extends Model
     public $text;
     public $sender;
     public $recipient;
-    public $imageFile;
+    public $File;
 
     public function rules()
     {
@@ -31,8 +31,8 @@ class AddMessage extends Model
     public function addMassage()
     {
         $message = new Message();
-        if(isset($this->imageFile))
-            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+        if(isset($this->File))
+            $this->File->saveAs('uploads/' . $this->File->baseName . '.' . $this->File->extension);
 
         $message->title = $this->title;
         $message->text = $this->text;
