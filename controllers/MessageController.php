@@ -78,6 +78,10 @@ class MessageController extends Controller
     }
     public function actionNew()
     {
+        if(Yii::$app->user->isGuest)
+            die;
+
+
         $where = "recipient=".Yii::$app->user->id;
         $massages = Message::find()->where($where)->all();
         $i = 0;
