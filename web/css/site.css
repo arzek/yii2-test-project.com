@@ -105,8 +105,11 @@ a.desc:after {
     margin-top: -12px;
     float: left;
 }
-span
+.navbar-brand span
 {
     padding-left: 8px;
 }
-
+.profile
+{
+    margin-top: -4px;
+}

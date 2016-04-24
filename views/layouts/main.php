@@ -8,7 +8,6 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-use app\models\User;
 
 AppAsset::register($this);
 
@@ -19,7 +18,7 @@ if(!Yii::$app->user->isGuest)
    $img = Yii::$app->user->identity->img;
 
 
-    $login = "<img  class='img-circle' height = '45px' src='$img'/><span>". Yii::$app->user->identity->name."</span>";
+    $login = "<img  class='img-circle' height = '45px' src='http://yii2-test-project.com/web/uploads/img/$img'><span>". Yii::$app->user->identity->name."</span>";
 }
 else
 {

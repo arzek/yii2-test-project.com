@@ -6,7 +6,7 @@ $('#message').append('<button id="new" class="btn btn-warning" style="display: n
 function show()
 {
     $.ajax({
-        url: 'message/new',
+        url: 'http://yii2-test-project.com/message/new',
         cache: false,
         success: function (html)
         {
