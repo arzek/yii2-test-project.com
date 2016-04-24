@@ -93,10 +93,20 @@ a.desc:after {
 #message a
 {
     float: left;
+
 }
 #new
 {
     border-radius: 50px;
     margin-top: 8px;
+}
+.img-circle
+{
+    margin-top: -12px;
+    float: left;
+}
+span
+{
+    padding-left: 8px;
 }
 
